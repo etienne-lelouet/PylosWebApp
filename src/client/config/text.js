@@ -1,0 +1,63 @@
+const fr = {
+	headerText: "KickMyBot - Observation kick.ai",
+	footerText: "KickMyBot - 2018",
+	intentListText: "Liste des intents",
+	appListText: "Liste des applications disponibles",
+	refresh: "Rafraîchir",
+	refreshing: "Rafraichissement en cours",
+	disconnect: "Se déconnecter",
+	login: "Se connecter",
+	line: "ligne",
+	lineIsBlank: "la ligne est vide",
+	lineIsTooLong: "la ligne est trop longue (maximum 256 caractères)",
+	noIntentSelected: "Pas d'intent selectionné",
+	noSamples: "Aucune phrase n'a été saisie",
+	uploadError: "Une erreur s'est produite lors de l'upload des samples, veuillez réessayer plus tard",
+	unknownError: "Une erreur inconnue s'est produite, veuillez réessayer plus tard",
+	internalServerError: "IErreur interne, veuillez réessayer plus tard",
+	uploadSuccessful: "Mise en ligne des samples réussie",
+	samplesTextAreaLabel: "Une phrase par ligne, max 256 caractères",
+	samplesButtonLabel: "Mettre en ligne",
+	samplesUploadTitle: "Mise en ligne des samples pour : ",
+	intentsNumberText: "Nombre d'intents : ",
+	samplesNumberText: "Nombre de samples",
+	samplesUpload: "Upload des samples",
+	intentsList: "Liste des intents",
+	fallbackTextAreaLabel: "Fallbacks, 1 par ligne",
+	validated: "validé",
+	notValidated: "non validé"
+};
+
+const en = {
+	headerText: "KickMyBot - kick.ai monitoring",
+	footerText: "KickMyBot - 2018",
+	intentListText: "Intent List",
+	appListText: "Available apps",
+	refresh: "Refresh",
+	refreshing: "Refreshing",
+	disconnect: "Log out",
+	login: "Log in",
+	line: "line",
+	lineIsBlank: "line is empty",
+	lineIsTooLong: "line is too long (max, 256 characters)",
+	noIntentSelected: "No intent Selected",
+	noSamples: "No samples typed",
+	uploadError: "There was an error when uploading samples, please try again later",
+	unknownError: "Unknown error, please try again later",
+	internalServerError: "Internal error, please try again later",
+	uploadSuccessful: "Samples upload successful",
+	samplesTextAreaLabel: "One sample per line, max 256 characters",
+	samplesButtonLabel: "Upload",
+	samplesUploadTitle: "Samples Upload for : ",
+	intentsNumberText: "Intents number : ",
+	samplesNumberText: "Samples number",
+	samplesUpload: "Samples upload",
+	intentsList: "Intents list",
+	fallbackTextAreaLabel: "Fallbacks, 1 per line",
+	validated: "validated",
+	notValidated: "not validated"
+};
+
+export default {
+	fr, en
+};
