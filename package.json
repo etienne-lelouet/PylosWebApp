@@ -4,9 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
-    "start-client": "webpack-dev-server --open --config webpack.dev.js",
-    "start-server": "nodemon src/backend/server.js",
-    "start-server-prod": "node_modules/.bin/pm2 start src/backend/server.js"
+    "start-client": "webpack-dev-server --open --config webpack.dev.js"
   },
   "keywords": [],
   "author": "Etienne Le Louët",
@@ -19,7 +17,6 @@
     "babel-loader": "^8.0.4",
     "cross-fetch": "^2.2.3",
     "css-loader": "^1.0.1",
-    "dotenv": "^6.1.0",
     "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
@@ -30,19 +27,13 @@
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.26.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10",
+    "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.3",
-    "cors": "^2.8.5",
-    "express": "^4.16.4",
-    "express-validator": "^5.3.0",
-    "https": "^1.0.0",
     "jsonwebtoken": "^8.4.0",
-    "mongoose": "^5.3.14",
-    "password-hash": "^1.2.2",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
