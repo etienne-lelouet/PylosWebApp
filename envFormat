@@ -1,0 +1,3 @@
+WITTOKEN=[ { "appName": "[appName]", "token":"WITTOKEN" } ...]
+JW_SECRET=[votre phrase secrète] #secret utilisé pour la génération des JWT d'authentification
+MONGO_URI=[l'url de connection à votre BDD mongo]

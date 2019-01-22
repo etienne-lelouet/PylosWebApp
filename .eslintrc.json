@@ -1,0 +1,45 @@
+{
+    "extends": "airbnb",
+    "plugins":[
+        "react"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "impliedStrict": true,
+        "ecmaFeatures": {
+            "jsx": true
+        }
+      },
+      "env": {
+          "node": true,
+          "mocha": true,
+          "browser": true
+        },
+    "rules": {
+        "no-console":"off",
+        "consistent-return":"off",
+        "react/jsx-filename-extension": [0],
+        "react/jsx-uses-react": "error",  
+        "react/jsx-uses-vars":"error",
+        "quotes": [ 2, "double" ],
+        "comma-dangle":  [ "error", "never" ],
+        "indent": [ 2, "tab" , { "SwitchCase": 1, "MemberExpression": "off" } ],
+        "function-paren-newline": [ "error", "consistent" ],
+        "array-bracket-spacing": [ "error", "always"],
+        "no-tabs": 0,
+        "import/no-dynamic-require": 0,
+        "no-underscore-dangle": 0,
+        "func-names": 0,
+        "no-return-assign": 0,
+        "no-plusplus": 0,
+        "prefer-rest-params": 0,
+        "global-require": 0,
+        "class-methods-use-this": 0,
+        "import/no-unresolved": 0,
+        "import/no-extraneous-dependencies": 0,
+        "react/prop-types": [2],
+        "react/jsx-indent": [2, "tab"],
+        "react/jsx-indent-props": [2, "tab"]
+    }
+  }
