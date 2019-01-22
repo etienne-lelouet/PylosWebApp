@@ -7,9 +7,7 @@ import {
 import { getApp } from "../actions/actionsApp";
 // import Footer from "../components/Footer";
 import HeaderContainer from "./HeaderContainer";
-import Intents from "./Intents";
-import SamplesUpload from "./SamplesUpload";
-import ServiceSelectorContainer from "./ServiceSelectorContainer";
+import MainPage from "./PlayerProfileContainer";
 
 class App extends React.Component {
 	componentDidMount() {
@@ -18,18 +16,15 @@ class App extends React.Component {
 	}
 
 	render() {
-		// const { footerText } = this.props;
-
 		return (
 			<div className="app">
 				<HeaderContainer />
-				<ServiceSelectorContainer />
 				<Switch>
-					<Route path="/samplesUpload/:appName?/:intentName?" component={SamplesUpload} />
-					<Route path="/intentList/:appName?/:orderBy?/:order?" component={Intents} />
-					<Route path="/" render={() => <Redirect to="/intentList" />} />
+					<Route path="/playerProfile" component={MainPage} />
+					{/* <Route path="/samplesUpload/:appName?/:intentName?" component={SamplesUpload} />
+					<Route path="/intentList/:appName?/:orderBy?/:order?" component={Intents} /> */}
+					<Route path="/" render={() => <Redirect to="/playerProfile" />} />
 				</Switch>
-				{/* <Footer footerText={footerText} /> */}
 			</div>
 		);
 	}
@@ -38,12 +33,10 @@ class App extends React.Component {
 App.propTypes = {
 	dispatch: PropTypes.func.isRequired,
 	token: PropTypes.string.isRequired
-	// footerText: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => ({
 	token: state.app.token,
-	// footerText: state.app.lang.footerText,
 	selectedLanguage: state.app.selectedLanguage
 });
 

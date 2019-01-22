@@ -3,7 +3,7 @@ import { Field, reduxForm, SubmissionError } from "redux-form";
 import { endpoint } from "../config/config";
 import { appRegisterLogin } from "../actions/actionsApp";
 
-class LoginForm extends React.Component {
+class RegisterForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.submit = this.submit.bind(this);
@@ -11,14 +11,16 @@ class LoginForm extends React.Component {
 
 	submit(values) {
 		const { dispatch } = this.props;
-		return fetch(endpoint.login, {
+		return fetch(endpoint.register, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
 			},
 			body: JSON.stringify({
 				login: values.login,
-				password: values.password
+				password: values.password,
+				passwordConfirmation: values.passwordConfirmation,
+				username: values.username
 			})
 		}).then(response => response.json().then((json) => {
 			if (json.errors) {
@@ -31,7 +33,7 @@ class LoginForm extends React.Component {
 					});
 					throw new SubmissionError(errors);
 				} else {
-					throw new SubmissionError({ _error: "Erreur lors de la " });
+					throw new SubmissionError({ _error: "registerError" });
 				}
 			} else if (json.token !== "") {
 				localStorage.setItem("token", json.token);
@@ -58,12 +60,14 @@ class LoginForm extends React.Component {
 		return (
 			<div className="loginFormContainer">
 				<form onSubmit={handleSubmit(this.submit)} className="loginForm">
-					{/* <div className="logoContainer"><img src={require("../ressources/images/logo.png")} className="imgLogo" alt="logoKick" /></div> */}
+					<div className="logoContainer"><img src={require("../ressources/images/logo.png")} className="imgLogo" alt="logoKick" /></div>
 					<Field name="login" component={this.renderField} type="text" label="login" />
 					<Field name="password" component={this.renderField} type="password" label="Password" />
+					<Field name="passwordConfirmation" component={this.renderField} type="password" label="password2" />
+					<Field name="username" component={this.renderField} type="text" label="Username" />
 					{error && <span className="errorLogin">{error}</span>}
 					<div>
-						<button type="submit">Log In</button>
+						<button type="submit">Register</button>
 					</div>
 				</form>
 			</div>
@@ -72,5 +76,5 @@ class LoginForm extends React.Component {
 }
 
 export default reduxForm({
-	form: "login"
-})(LoginForm);
+	form: "registerForm"
+})(RegisterForm);

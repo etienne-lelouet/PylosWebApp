@@ -2,14 +2,18 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import {
-	Route, withRouter
+	Route, withRouter, Switch
 } from "react-router-dom";
 import Login from "../components/Login";
+import Register from "../components/Register";
 import App from "./App";
 import "../styles/app.css";
 
 const AppRouter = ({ isLogged }) => (
-	<Route path="/" component={isLogged !== "" ? App : Login} />
+	<Switch>
+		<Route path="/register" component={isLogged !== "" ? App : Register} />
+		<Route path="/" component={isLogged !== "" ? App : Login} />
+	</Switch>
 );
 
 AppRouter.propTypes = {
