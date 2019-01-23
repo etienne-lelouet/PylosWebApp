@@ -68,7 +68,8 @@ html, body, #app {
 .errorLogin{
   color: #ff0000;
   font-weight: bold;
-  padding: 1%;
+	padding: 1%;
+	white-space:nowrap;
 }
 
 /*Page Header*/
