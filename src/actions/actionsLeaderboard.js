@@ -1,21 +1,14 @@
-import { endpoint } from "../config/config";
+import endpoint from "../config/config";
 import { invalidateToken } from "./actionsApp";
 
-export const SAMPLES_FETCHED_INTENTS = "SAMPLES_FETCH_INTENTS";
-export const SAMPLES_DISPLAY_MESSAGE = "SAMPLES_DISPLAY_ERRORS";
-export const SAMPLES_HIDE_MESSAGE = "SAMPLES_HIDE_ERRORS";
-export const SAMPLES_UPLOAD_SUCESS = "SAMPLES_UPLOAD_SUCESS";
-export const SAMPLES_ADD_INTENT = "SAMPLES_ADD_INTENT";
+export const LEADERBOARD_FETCHED_PLAYERS = "LEADERBOARDS_FETCHED_PLAYERS";
+export const LEADERBOARD_DISPLAY_MESSAGE = "LEADERBOARD_DISPLAY_MESSAGE";
 
-export const intentsReturnFetchedData = values => ({ type: SAMPLES_FETCHED_INTENTS, values });
+export const leaderboardReturnFetchedPlayers = values => ({ type: LEADERBOARD_FETCHED_PLAYERS, values });
 
-export const displayMessage = (messageSamplesText, messageSamplesType) => (
-	{ type: SAMPLES_DISPLAY_MESSAGE, values: { messageSamplesText, messageSamplesType } }
+export const displayMessage = (messageText, type) => (
+	{ type: LEADERBOARD_DISPLAY_MESSAGE, values: { messageText, type } }
 );
-
-export const addIntentToList = intentValue => ({ type: SAMPLES_ADD_INTENT, values: intentValue });
-
-export const hideErrors = () => ({ type: SAMPLES_HIDE_MESSAGE });
 
 export const generateMessage = (messageCode, type) => (dispatch, getState) => {
 	const { app: { lang } } = getState();
@@ -23,7 +16,7 @@ export const generateMessage = (messageCode, type) => (dispatch, getState) => {
 	dispatch(displayMessage(messageText, type));
 };
 
-export const fetchIntentList = selectedApp => async (dispatch, getState) => {
+export const fetchPlayerList = () => async (dispatch, getState) => {
 	const { app: { token } } = getState();
 	const options = {
 		method: "GET",
@@ -33,7 +26,7 @@ export const fetchIntentList = selectedApp => async (dispatch, getState) => {
 		}
 	};
 	try {
-		const response = await fetch(`${endpoint.getIntents}?appName=${selectedApp}`, options);
+		const response = await fetch(`${endpoint.getPlayers}`, options);
 		const json = await response.json();
 		switch (response.status) {
 			case 401:
@@ -46,8 +39,7 @@ export const fetchIntentList = selectedApp => async (dispatch, getState) => {
 			default:
 				return dispatch(generateMessage("unknownError", "error"));
 		}
-		const intents = json.values.map(({ value }) => (value));
-		return dispatch(intentsReturnFetchedData(intents));
+		return dispatch(leaderboardReturnFetchedPlayers(json));
 	} catch (e) {
 		return dispatch(generateMessage("unknownError", "error"));
 	}

@@ -1,9 +1,13 @@
-// import {
-// 	SAMPLES_FETCHED_INTENTS, SAMPLES_DISPLAY_MESSAGE, SAMPLES_HIDE_MESSAGE, SAMPLES_ADD_INTENT
-// } from "../actions/actionsSamples";
+import { LEADERBOARD_FETCHED_PLAYERS } from "../actions/actionsLeaderboard";
 
 const leaderboards = (state = {}, action) => {
 	switch (action.type) {
+		case LEADERBOARD_FETCHED_PLAYERS:
+			return {
+				...state,
+				userList: action.values.res
+			};
+
 		default:
 			return state;
 	}

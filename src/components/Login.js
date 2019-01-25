@@ -34,14 +34,14 @@ class LoginForm extends React.Component {
 					});
 					throw new SubmissionError(errors);
 				} else {
-					throw new SubmissionError({ _error: "Erreur lors de la " });
+					throw new SubmissionError({ _error: "Erreur lors de la connexion" });
 				}
 			} else if (json.token !== "") {
 				localStorage.setItem("token", json.token);
 				localStorage.setItem("login", values.login);
 				dispatch(appRegisterLogin(json.token, values.login));
 			} else {
-				throw new Error({});
+				throw new SubmissionError({ _error: "Erreur lors de la connexion" });
 			}
 		}));
 	}

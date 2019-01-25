@@ -34,7 +34,6 @@ class PlayerProfileContainer extends React.Component {
 			messageProfile,
 			messageProfileType,
 			messageProfileText
-
 		} = this.props;
 		console.log(this.props);
 		if (messageProfile) {

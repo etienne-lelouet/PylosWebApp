@@ -7,6 +7,8 @@ import {
 // import Footer from "../components/Footer";
 import HeaderContainer from "./HeaderContainer";
 import PlayerProfileContainer from "./PlayerProfileContainer";
+import ServiceSelectorContainer from "./ServiceSelectorContainer";
+import Leaderboard from "./LeaderboardContainer";
 
 class App extends React.Component {
 	componentDidMount() {
@@ -17,9 +19,10 @@ class App extends React.Component {
 		return (
 			<div className="app">
 				<HeaderContainer />
+				<ServiceSelectorContainer />
 				<Switch>
 					<Route path="/playerProfile/:playerName?" component={PlayerProfileContainer} />
-					<Route path="/leaderboards" component={PlayerProfileContainer} />
+					<Route path="/leaderboards" component={Leaderboard} />
 					<Route path="/" render={() => <Redirect to="/playerProfile" />} />
 				</Switch>
 			</div>

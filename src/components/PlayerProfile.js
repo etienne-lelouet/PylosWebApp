@@ -22,7 +22,7 @@ const PlayerProfile = props => (
 				{" "}
 				:
 				{" "}
-				{props.NbParties}
+				{props.nbParties}
 			</li>
 			<li>
 				{props.nbVictoiresText}
