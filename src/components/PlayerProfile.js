@@ -1,13 +1,45 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const PlayerProfile = () => (
+const PlayerProfile = props => (
 	<div>
-		ZBEB ZBEB T CONNECTE
+		<ul>
+			<li>
+				{props.usernameText}
+				{" "}
+				:
+				{" "}
+				{props.username}
+			</li>
+			<li>
+				{props.scoreText}
+				{" "}
+				:
+				{" "}
+				{props.score}
+			</li>
+			<li>
+				{props.nbPartiesText}
+				{" "}
+				:
+				{" "}
+				{props.NbParties}
+			</li>
+			<li>
+				{props.nbVictoiresText}
+				{" "}
+				:
+				{" "}
+				{props.nbVictoires}
+			</li>
+			<li>
+				{props.nbDefaitesText}
+				{" "}
+				:
+				{" "}
+				{props.nbDefaites}
+			</li>
+		</ul>
 	</div>
 );
-
-PlayerProfile.propTypes = {
-};
 
 export default PlayerProfile;

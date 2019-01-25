@@ -1,5 +1,5 @@
 import {
-	APP_TOKEN, APP_INVALIDATE_TOKEN, APP_SIDEBAR_ERROR, APP_SIDEBAR_LISTAPPS, APP_CHANGE_LANG
+	APP_TOKEN, APP_INVALIDATE_TOKEN, APP_CHANGE_LANG
 } from "../actions/actionsApp";
 import lang from "../config/text";
 
@@ -8,7 +8,8 @@ const app = (state = {}, action) => {
 		case APP_TOKEN:
 			return {
 				...state,
-				token: action.token
+				token: action.values.token,
+				user: action.values.user
 			};
 		case APP_INVALIDATE_TOKEN: // en cas de token invalide
 			return {
@@ -16,18 +17,6 @@ const app = (state = {}, action) => {
 				intents: [],
 				token: "",
 				fetching: false
-			};
-		case APP_SIDEBAR_ERROR:
-			return {
-				...state,
-				appListError: true
-			};
-
-		case APP_SIDEBAR_LISTAPPS:
-			return {
-				...state,
-				selectedApp: action.apps.selectedApp,
-				appList: action.apps.appList
 			};
 		case APP_CHANGE_LANG:
 			return {

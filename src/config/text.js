@@ -24,7 +24,12 @@ const fr = {
 	invalidPassword: "Mot de passe invalide",
 	incorrectPassword: "Mot de passe incorrect",
 	passwordDoesNotMatch: "Les mots de passes saisis ne sont pas identiques",
-	invalidUsername: "Username invalide"
+	invalidUsername: "Username invalide",
+	username: "Username",
+	score: "score",
+	nbParties: "Nombre de parties",
+	nbVictoires: "Nombre de victoires",
+	nbDefaites: "Nombre de défaites"
 };
 
 const en = {
@@ -53,7 +58,12 @@ const en = {
 	invalidPassword: "Invalid password",
 	incorrectPassword: "incorrect password",
 	passwordDoesNotMatch: "passwords are not the same",
-	invalidUsername: "invalid username"
+	invalidUsername: "invalid username",
+	username: "Username",
+	score: "Score",
+	nbParties: "Games played",
+	nbVictoires: "Victories",
+	nbDefaites: "Defeats"
 };
 
 export default {

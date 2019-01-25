@@ -2,7 +2,7 @@ import React from "react";
 import { Field, reduxForm, SubmissionError } from "redux-form";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { endpoint } from "../config/config";
+import endpoint from "../config/config";
 import { appRegisterLogin, changeLang } from "../actions/actionsApp";
 
 class RegisterForm extends React.Component {
@@ -67,7 +67,6 @@ class RegisterForm extends React.Component {
 		const {
 			availableLanguages, selectedLanguage, handleSubmit, error, loginFieldText, passwordFieldText, passwordConfirmationFieldText, usernameFieldText, register, loginText
 		} = this.props;
-		console.log(loginText);
 		return (
 			<div className="loginFormContainer">
 				<form onSubmit={handleSubmit(this.submit)} className="loginForm">

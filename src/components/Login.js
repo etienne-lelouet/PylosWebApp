@@ -2,7 +2,7 @@ import React from "react";
 import { Field, reduxForm, SubmissionError } from "redux-form";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { endpoint } from "../config/config";
+import endpoint from "../config/config";
 import { appRegisterLogin, changeLang } from "../actions/actionsApp";
 
 class LoginForm extends React.Component {
@@ -29,18 +29,17 @@ class LoginForm extends React.Component {
 					const errors = {};
 					json.errors.forEach((error) => {
 						if (error.type === "param") {
-							console.log(this.props);
 							errors[error.param] = this.props[error.msg];
 						}
 					});
-					console.log(errors);
 					throw new SubmissionError(errors);
 				} else {
 					throw new SubmissionError({ _error: "Erreur lors de la " });
 				}
 			} else if (json.token !== "") {
 				localStorage.setItem("token", json.token);
-				dispatch(appRegisterLogin(json.token));
+				localStorage.setItem("login", values.login);
+				dispatch(appRegisterLogin(json.token, values.login));
 			} else {
 				throw new Error({});
 			}
